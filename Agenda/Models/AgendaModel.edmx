@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AgendaTarefaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Prioridade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tarefa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoTarefa" Type="int" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar(max)" />
+          <Property Name="DataInclusao" Type="datetime" Nullable="false" />
+          <Property Name="Prazo" Type="datetime" />
+          <Property Name="Data Inicial" Type="datetime" />
+          <Property Name="Data Final" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Progressao" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Prioridade" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTarefa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Senha" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Tarefa_ToPrioridade">
+          <End Role="Prioridade" Type="Self.Prioridade" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Prioridade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToStatus">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToTipoTarefa">
+          <End Role="TipoTarefa" Type="Self.TipoTarefa" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTarefa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="TipoTarefa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTarefa_ToUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="TipoTarefa" Type="Self.TipoTarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoTarefa">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgendaTarefaModelStoreContainer">
+          <EntitySet Name="Prioridade" EntityType="Self.Prioridade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarefa" EntityType="Self.Tarefa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTarefa" EntityType="Self.TipoTarefa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tarefa_ToPrioridade" Association="Self.FK_Tarefa_ToPrioridade">
+            <End Role="Prioridade" EntitySet="Prioridade" />
+            <End Role="Tarefa" EntitySet="Tarefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToStatus" Association="Self.FK_Tarefa_ToStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Tarefa" EntitySet="Tarefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToTipoTarefa" Association="Self.FK_Tarefa_ToTipoTarefa">
+            <End Role="TipoTarefa" EntitySet="TipoTarefa" />
+            <End Role="Tarefa" EntitySet="Tarefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToUsuario" Association="Self.FK_Tarefa_ToUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Tarefa" EntitySet="Tarefa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTarefa_ToUsuario" Association="Self.FK_TipoTarefa_ToUsuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="TipoTarefa" EntitySet="TipoTarefa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AgendaTarefaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Prioridade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tarefas" Relationship="Self.FK_Tarefa_ToPrioridade" FromRole="Prioridade" ToRole="Tarefa" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tarefas" Relationship="Self.FK_Tarefa_ToStatus" FromRole="Status" ToRole="Tarefa" />
+        </EntityType>
+        <EntityType Name="Tarefa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoTarefa" Type="Int32" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataInclusao" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Prazo" Type="DateTime" Precision="3" />
+          <Property Name="Data_Inicial" Type="DateTime" Precision="3" />
+          <Property Name="Data_Final" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Progressao" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Prioridade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prioridade1" Relationship="Self.FK_Tarefa_ToPrioridade" FromRole="Tarefa" ToRole="Prioridade" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK_Tarefa_ToStatus" FromRole="Tarefa" ToRole="Status" />
+          <NavigationProperty Name="TipoTarefa1" Relationship="Self.FK_Tarefa_ToTipoTarefa" FromRole="Tarefa" ToRole="TipoTarefa" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.FK_Tarefa_ToUsuario" FromRole="Tarefa" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoTarefa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tarefas" Relationship="Self.FK_Tarefa_ToTipoTarefa" FromRole="TipoTarefa" ToRole="Tarefa" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.FK_TipoTarefa_ToUsuario" FromRole="TipoTarefa" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tarefas" Relationship="Self.FK_Tarefa_ToUsuario" FromRole="Usuario" ToRole="Tarefa" />
+          <NavigationProperty Name="TipoTarefas" Relationship="Self.FK_TipoTarefa_ToUsuario" FromRole="Usuario" ToRole="TipoTarefa" />
+        </EntityType>
+        <Association Name="FK_Tarefa_ToPrioridade">
+          <End Role="Prioridade" Type="Self.Prioridade" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Prioridade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToStatus">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToTipoTarefa">
+          <End Role="TipoTarefa" Type="Self.TipoTarefa" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTarefa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="TipoTarefa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tarefa_ToUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Tarefa" Type="Self.Tarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tarefa">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTarefa_ToUsuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="TipoTarefa" Type="Self.TipoTarefa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoTarefa">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AgendaTarefaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Prioridades" EntityType="Self.Prioridade" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Tarefas" EntityType="Self.Tarefa" />
+          <EntitySet Name="TipoTarefas" EntityType="Self.TipoTarefa" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Tarefa_ToPrioridade" Association="Self.FK_Tarefa_ToPrioridade">
+            <End Role="Prioridade" EntitySet="Prioridades" />
+            <End Role="Tarefa" EntitySet="Tarefas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToStatus" Association="Self.FK_Tarefa_ToStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Tarefa" EntitySet="Tarefas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToTipoTarefa" Association="Self.FK_Tarefa_ToTipoTarefa">
+            <End Role="TipoTarefa" EntitySet="TipoTarefas" />
+            <End Role="Tarefa" EntitySet="Tarefas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tarefa_ToUsuario" Association="Self.FK_Tarefa_ToUsuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Tarefa" EntitySet="Tarefas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTarefa_ToUsuario" Association="Self.FK_TipoTarefa_ToUsuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="TipoTarefa" EntitySet="TipoTarefas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AgendaTarefaModelStoreContainer" CdmEntityContainer="AgendaTarefaEntities">
+          <EntitySetMapping Name="Prioridades">
+            <EntityTypeMapping TypeName="AgendaTarefaModel.Prioridade">
+              <MappingFragment StoreEntitySet="Prioridade">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="AgendaTarefaModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarefas">
+            <EntityTypeMapping TypeName="AgendaTarefaModel.Tarefa">
+              <MappingFragment StoreEntitySet="Tarefa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="TipoTarefa" ColumnName="TipoTarefa" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="DataInclusao" ColumnName="DataInclusao" />
+                <ScalarProperty Name="Prazo" ColumnName="Prazo" />
+                <ScalarProperty Name="Data_Inicial" ColumnName="Data Inicial" />
+                <ScalarProperty Name="Data_Final" ColumnName="Data Final" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Progressao" ColumnName="Progressao" />
+                <ScalarProperty Name="Prioridade" ColumnName="Prioridade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTarefas">
+            <EntityTypeMapping TypeName="AgendaTarefaModel.TipoTarefa">
+              <MappingFragment StoreEntitySet="TipoTarefa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Cor" ColumnName="Cor" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="AgendaTarefaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
