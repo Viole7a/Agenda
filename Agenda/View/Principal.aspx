@@ -18,10 +18,10 @@
             </h3>
             <asp:GridView runat="server" ID="listaTarefas" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:BoundField DataField="id" HeaderText="#" visible="false"/>
+                    <asp:BoundField DataField="id" HeaderText="#" visible="true"/>
                     <asp:BoundField DataField="titulo" HeaderText="Titulo" />
                     <asp:BoundField DataField="descricao" HeaderText="Descricao" />
-                    <asp:BoundField DataField="prazo" HeaderText="Prazo" />
+                    <asp:BoundField DataField="prazo" HeaderText="Prazo" DataFormatString="{0:dd/MM/yyyy}" />
                     <asp:BoundField DataField="tipoTarefa1.nome" HeaderText="Tipo de Tarefa" />
                     <asp:ButtonField Text="Vizualizar" />
 				</Columns>

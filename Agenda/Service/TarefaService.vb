@@ -53,11 +53,29 @@
 
     End Sub
 
+    Public Sub updateTarefa(ByVal tarefa As Tarefa)
+
+        Dim agendaTarefa = New AgendaTarefaEntities
+
+        agendaTarefa.Tarefas.Add(tarefa)
+        agendaTarefa.Entry(tarefa).State = System.Data.Entity.EntityState.Modified
+        agendaTarefa.SaveChanges()
+
+    End Sub
+
     Public Function listarTarefas(ByVal id As Integer) As List(Of Tarefa)
 
         Dim agendaTarefa = New AgendaTarefaEntities
 
         Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = id).ToList
+
+    End Function
+
+    Public Function carregarTarefa(ByVal id As Integer) As Tarefa
+
+        Dim agendaTarefa = New AgendaTarefaEntities
+
+        Return agendaTarefa.Tarefas.Find(id)
 
     End Function
 

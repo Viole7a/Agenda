@@ -95,6 +95,15 @@ Partial Public Class TarefaEditar
     Protected WithEvents btnIncluirTarefa As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Controle btnSalvarTarefa.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnSalvarTarefa As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''Controle btnVoltar.
     '''</summary>
     '''<remarks>

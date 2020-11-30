@@ -19,6 +19,7 @@
 
             Session("id") = usuario.Id
             Session("nomeUsuario") = usuario.Nome
+            Session("usuario") = usuario
 
             Response.Redirect("~/View/Principal")
         End If
