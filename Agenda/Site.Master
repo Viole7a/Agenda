@@ -40,19 +40,14 @@
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nome do aplicativo</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><asp:Button ID="btnSair" runat="server" text="Sair"/></li>
-                    </ul>
+            <div class="container"> 
+                <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="navbar-brand" runat="server" href="~/">Minha Agenda</label>
+                </div> 
+                <div class="form-group col-md-6">
+                      <asp:Button ID="btnSair" runat="server" text="Sair"/>   
+                </div> 
                 </div>
             </div>
         </div>

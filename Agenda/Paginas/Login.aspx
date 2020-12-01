@@ -6,36 +6,36 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <table>
-                <tr>
-                    <td>
-                        <label>Login: </label>
-                    </td>
-                    <td>
-                        <asp:TextBox id="txtLogin" runat="server"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Senha: </label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="btnEntrar" Text="Entrar" runat="server" />
-                    </td>
-                    <td>
-                        <asp:Button ID="btnCadastrar" Text="Cadastrar" runat="server" />
-                    </td>
-                </tr>
-            </table>            
+        <div class="container-fluid box" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cadadstrar</h4>
+                    </div>
+                    <div class="modal-body modal-dialog-centered">                          
+                        <div class="form-group">
+                            <label>Login: </label>
+                            <asp:TextBox id="txtLogin" runat="server" class="form-control"/>
+                        </div>                                                
+                        <div class="form-group">
+                            <label>Senha: </label>
+                            <asp:TextBox ID="txtSenha" TextMode="Password" runat="server" class="form-control" />
+                        </div>                                                
+                        <div class="form-group">
+                            <asp:Button ID="btnEntrar" Text="Entrar" runat="server" class="btn btn-primary" />
+                            <asp:Button ID="btnCadastrar" Text="Cadastrar" runat="server" class="btn btn-primary" />
+                        </div>                        
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </body>

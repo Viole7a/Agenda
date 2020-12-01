@@ -298,6 +298,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Utils\CodificaUtil.vb" />
+    <Compile Include="Utils\CorUtils.vb" />
     <Compile Include="Utils\MensagemUtils.vb" />
     <Compile Include="Utils\ValidacaoUtils.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">

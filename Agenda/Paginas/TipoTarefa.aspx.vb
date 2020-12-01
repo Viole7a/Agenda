@@ -11,6 +11,16 @@
             Response.Redirect("~/Paginas/Login")
         End If
 
+        If Not Page.IsPostBack Then
+            carregaComboCor()
+        End If
+
+    End Sub
+
+    Public Sub carregaComboCor()
+
+        CorUtils.carregaComboCores(drpCor)
+
     End Sub
 
     Protected Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click

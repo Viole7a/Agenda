@@ -1,45 +1,38 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="TipoTarefa.aspx.vb" Inherits="Agenda.TipoTarefa1" %>
+﻿<%@ Page Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="TipoTarefa.aspx.vb" Inherits="Agenda.TipoTarefa1" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container-fluid box">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-header">
+               <h2>
+                  <label>Tarefa</label> 
+               </h2>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <asp:DataGrid ID="dtgTipoTarefa" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:DataGrid ID="dtgTipoTarefa" runat="server">
-
-            </asp:DataGrid>
-            <table>               
-                <tr>
-                    <td>
-                        <label>Nome:</label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="txtNome" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Cor:</label>
-                    </td>
-                    <td>
-                        <asp:DropDownList id="drpCor" runat="server"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button id="btnIncluir" Text="Incluir" runat="server"/>
-                    </td>
-                    <td>
-                        <asp:Button ID="btnVoltar" Text="Voltar" runat="server" />
-                    </td>
-                </tr>
-            </table>
+                    </asp:DataGrid>
+                    <div>               
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Nome:</label>
+                                <asp:TextBox ID="txtNome" class="form-control" runat="server" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Cor:</label>
+                                <asp:DropDownList id="drpCor" class="form-control" runat="server"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <asp:Button id="btnIncluir" Text="Incluir" runat="server" class="btn btn-success"/>
+                                <asp:Button ID="btnVoltar" Text="Voltar" runat="server" class="btn btn-secondary"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-</body>
-</html>
+     </div>
+</asp:Content>
