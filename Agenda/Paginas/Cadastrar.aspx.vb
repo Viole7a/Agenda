@@ -8,7 +8,7 @@
     End Sub
 
     Protected Sub btnVoltar_Click(sender As Object, e As EventArgs) Handles btnVoltar.Click
-        Response.Redirect("~/View/Login")
+        Response.Redirect("~/Paginas/Login")
     End Sub
 
     Protected Sub btnCadastrar_Click(sender As Object, e As EventArgs) Handles btnCadastrar.Click
@@ -19,7 +19,7 @@
         If validaUsuario() Then
             Dim usuario = New Usuario With {.Login = txtLogin.Text, .Senha = txtSenha.Text, .Nome = txtNome.Text}
             usuarioService.salvarUsuario(usuario)
-            Response.Redirect("~/View/Login")
+            Response.Redirect("~/Paginas/Login")
         End If
 
     End Sub

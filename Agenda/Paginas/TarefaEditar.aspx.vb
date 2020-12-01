@@ -7,26 +7,33 @@
 
         usuario = DirectCast(Session("usuario"), Usuario)
 
-        If Not Page.IsPostBack Then
+        If usuario IsNot Nothing Then
 
-            drpTipoTarefa.DataSource = tarefaService.carregaTipoTarefa(usuario.Id)
-            drpTipoTarefa.DataBind()
+            If Not Page.IsPostBack Then
 
-            drpPrioridade.DataSource = tarefaService.carregaPrioridade()
-            drpPrioridade.DataBind()
+                drpTipoTarefa.DataSource = tarefaService.carregaTipoTarefa(usuario.Id)
+                drpTipoTarefa.DataBind()
 
-            drpStatus.DataSource = tarefaService.carregaStatus()
-            drpStatus.DataBind()
+                drpPrioridade.DataSource = tarefaService.carregaPrioridade()
+                drpPrioridade.DataBind()
 
-            If Request("id") <> "0" Then
-                btnIncluirTarefa.Visible = False
+                drpStatus.DataSource = tarefaService.carregaStatus()
+                drpStatus.DataBind()
 
-                carregaCampos(CInt(Request("Id")))
+                If Request("id") <> "0" Then
+                    btnIncluirTarefa.Visible = False
 
-            Else
-                btnSalvarTarefa.Visible = False
+                    carregaCampos(CInt(Request("Id")))
+
+                Else
+                    btnSalvarTarefa.Visible = False
+                    btnExcluirTarefa.Visible = False
+                End If
+
             End If
 
+        Else
+            Response.Redirect("~/Paginas/Login")
         End If
 
     End Sub
@@ -48,7 +55,7 @@
             End If
 
             tarefaService.salvarTarefa(tarefa)
-            Response.Redirect("~/View/TarefaEditar?Id=" & tarefa.Id)
+            Response.Redirect("~/Paginas/TarefaEditar?Id=" & tarefa.Id)
 
         End If
 
@@ -103,7 +110,7 @@
     End Sub
 
     Protected Sub btnVoltar_Click(sender As Object, e As EventArgs) Handles btnVoltar.Click
-        Response.Redirect("~/View/Principal")
+        Response.Redirect("~/Paginas/Principal")
     End Sub
 
     Protected Sub btnSalvarTarefa_Click(sender As Object, e As EventArgs) Handles btnSalvarTarefa.Click
@@ -130,9 +137,16 @@
             tarefa.Id = CInt(Request("Id"))
 
             tarefaService.updateTarefa(tarefa)
-            Response.Redirect("~/View/TarefaEditar?Id=" & tarefa.Id)
+            Response.Redirect("~/Paginas/TarefaEditar?Id=" & tarefa.Id)
 
         End If
+
+    End Sub
+
+    Protected Sub btnExcluirTarefa_Click(sender As Object, e As EventArgs) Handles btnExcluirTarefa.Click
+
+        tarefaService.excluirTarefa(CInt(Request("Id")))
+        Response.Redirect("~/Paginas/Principal")
 
     End Sub
 End Class

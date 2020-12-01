@@ -3,13 +3,10 @@ Public Class SiteMaster
     Inherits MasterPage
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
-        Dim teste = New AgendaTarefaEntities
+    End Sub
 
-        Dim teste2 = teste.Usuarios.Where(Function(o) o.Id = 1).ToList
-
-
-
-        Dim teste3 = 1
-
+    Protected Sub btnSair_Click(sender As Object, e As EventArgs) Handles btnSair.Click
+        Session.Remove("Usuario")
+        Response.Redirect("~/Paginas/Login")
     End Sub
 End Class

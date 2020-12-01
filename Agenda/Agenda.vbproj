@@ -204,12 +204,11 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="View\Login.aspx" />
-    <Content Include="View\TarefaEditar.aspx" />
-    <Content Include="View\Tarefas.aspx" />
-    <Content Include="View\Cadastrar.aspx" />
-    <Content Include="View\Principal.aspx" />
-    <Content Include="View\TipoTarefa.aspx" />
+    <Content Include="Paginas\Login.aspx" />
+    <Content Include="Paginas\TarefaEditar.aspx" />
+    <Content Include="Paginas\Cadastrar.aspx" />
+    <Content Include="Paginas\Principal.aspx" />
+    <Content Include="Paginas\TipoTarefa.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -298,6 +297,7 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Utils\CodificaUtil.vb" />
     <Compile Include="Utils\MensagemUtils.vb" />
     <Compile Include="Utils\ValidacaoUtils.vb" />
     <Compile Include="ViewSwitcher.ascx.vb">
@@ -314,45 +314,38 @@
     <Compile Include="Site.Mobile.Master.designer.vb">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="View\Login.aspx.designer.vb">
+    <Compile Include="Paginas\Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Login.aspx.vb">
+    <Compile Include="Paginas\Login.aspx.vb">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\TarefaEditar.aspx.designer.vb">
+    <Compile Include="Paginas\TarefaEditar.aspx.designer.vb">
       <DependentUpon>TarefaEditar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\TarefaEditar.aspx.vb">
+    <Compile Include="Paginas\TarefaEditar.aspx.vb">
       <DependentUpon>TarefaEditar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="View\Tarefas.aspx.designer.vb">
-      <DependentUpon>Tarefas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Tarefas.aspx.vb">
-      <DependentUpon>Tarefas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="View\Cadastrar.aspx.designer.vb">
+    <Compile Include="Paginas\Cadastrar.aspx.designer.vb">
       <DependentUpon>Cadastrar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Cadastrar.aspx.vb">
+    <Compile Include="Paginas\Cadastrar.aspx.vb">
       <DependentUpon>Cadastrar.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="View\Principal.aspx.designer.vb">
+    <Compile Include="Paginas\Principal.aspx.designer.vb">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Principal.aspx.vb">
+    <Compile Include="Paginas\Principal.aspx.vb">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="View\TipoTarefa.aspx.designer.vb">
+    <Compile Include="Paginas\TipoTarefa.aspx.designer.vb">
       <DependentUpon>TipoTarefa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\TipoTarefa.aspx.vb">
+    <Compile Include="Paginas\TipoTarefa.aspx.vb">
       <DependentUpon>TipoTarefa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>

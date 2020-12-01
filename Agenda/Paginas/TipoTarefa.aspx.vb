@@ -7,6 +7,10 @@
 
         usuario = DirectCast(Session("usuario"), Usuario)
 
+        If usuario Is Nothing Then
+            Response.Redirect("~/Paginas/Login")
+        End If
+
     End Sub
 
     Protected Sub btnIncluir_Click(sender As Object, e As EventArgs) Handles btnIncluir.Click
@@ -21,7 +25,11 @@
         agendaTarefa.TipoTarefas.Add(tipoTarefa)
         agendaTarefa.SaveChanges()
 
-        Response.Redirect("~/View/Principal")
+        Response.Redirect("~/Paginas/Principal")
 
+    End Sub
+
+    Protected Sub btnVoltar_Click(sender As Object, e As EventArgs) Handles btnVoltar.Click
+        Response.Redirect("~/Paginas/Principal")
     End Sub
 End Class

@@ -51,9 +51,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Página inicial</a></li>
-                        <li><a runat="server" href="~/About">Sobre</a></li>
-                        <li><a runat="server" href="~/View/Login">TLogin</a></li>
+                        <li><asp:Button ID="btnSair" runat="server" text="Sair"/></li>
                     </ul>
                 </div>
             </div>
@@ -61,10 +59,7 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Meu aplicativo ASP.NET</p>
-            </footer>
+            <hr />            
         </div>
 
     </form>

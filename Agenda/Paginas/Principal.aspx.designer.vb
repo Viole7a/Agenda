@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class WebForm3
 
     '''<summary>
-    '''Controle form1.
-    '''</summary>
-    '''<remarks>
-    '''Campo gerado automaticamente.
-    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
     '''Controle txtTitulo.
     '''</summary>
     '''<remarks>

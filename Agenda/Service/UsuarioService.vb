@@ -4,6 +4,8 @@
 
         Dim agendaTarefa = New AgendaTarefaEntities
 
+        usuario.Senha = CodificaUtil.converteParaBase64(usuario.Senha)
+
         agendaTarefa.Usuarios.Add(usuario)
         agendaTarefa.SaveChanges()
 
@@ -26,13 +28,23 @@
         Dim usuarioLogado = New Usuario
         Dim agendaTarefa = New AgendaTarefaEntities
 
+        Dim senhaBase64 = CodificaUtil.converteParaBase64(senha)
+
         Try
-            usuarioLogado = agendaTarefa.Usuarios.Where(Function(user) user.Login = login And user.Senha = senha).First
+            usuarioLogado = agendaTarefa.Usuarios.Where(Function(user) user.Login = login And user.Senha = senhaBase64).First
             Return usuarioLogado
 
         Catch ex As Exception
             Return Nothing
         End Try
+
+    End Function
+
+    Public Function carregaUsuario(ByVal id As Integer) As Usuario
+
+        Dim agendaTarefa = New AgendaTarefaEntities
+
+        Return agendaTarefa.Usuarios.Find(id)
 
     End Function
 

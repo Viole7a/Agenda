@@ -56,9 +56,9 @@
     Public Sub updateTarefa(ByVal tarefa As Tarefa)
 
         Dim agendaTarefa = New AgendaTarefaEntities
+        Dim tarefaAnterior = agendaTarefa.Tarefas.Find(tarefa.Id)
 
-        agendaTarefa.Tarefas.Add(tarefa)
-        agendaTarefa.Entry(tarefa).State = System.Data.Entity.EntityState.Modified
+        agendaTarefa.Entry(tarefaAnterior).CurrentValues.SetValues(tarefa)
         agendaTarefa.SaveChanges()
 
     End Sub
@@ -78,5 +78,17 @@
         Return agendaTarefa.Tarefas.Find(id)
 
     End Function
+
+    Public Sub excluirTarefa(ByVal id As Integer)
+
+        Dim agendaTarefa = New AgendaTarefaEntities
+
+        Dim tarefa = agendaTarefa.Tarefas.Find(id)
+
+        agendaTarefa.Tarefas.Remove(Tarefa)
+
+        agendaTarefa.SaveChanges()
+
+    End Sub
 
 End Class

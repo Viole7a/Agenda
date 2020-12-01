@@ -8,7 +8,7 @@
     End Sub
 
     Protected Sub btnCadastrar_Click(sender As Object, e As EventArgs) Handles btnCadastrar.Click
-        Response.Redirect("~/View/Cadastrar")
+        Response.Redirect("~/Paginas/Cadastrar")
     End Sub
 
     Protected Sub btnEntrar_Click(sender As Object, e As EventArgs) Handles btnEntrar.Click
@@ -17,11 +17,9 @@
 
         If usuario IsNot Nothing Then
 
-            Session("id") = usuario.Id
-            Session("nomeUsuario") = usuario.Nome
             Session("usuario") = usuario
+            Response.Redirect("~/Paginas/Principal")
 
-            Response.Redirect("~/View/Principal")
         End If
 
     End Sub
