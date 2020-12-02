@@ -23,6 +23,15 @@ Partial Public Class WebForm1
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''Controle txtMensagem.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtMensagem As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Controle txtLogin.
     '''</summary>
     '''<remarks>

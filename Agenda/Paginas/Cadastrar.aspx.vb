@@ -13,8 +13,7 @@
 
     Protected Sub btnCadastrar_Click(sender As Object, e As EventArgs) Handles btnCadastrar.Click
 
-        txtMensagem.Text = ""
-        txtMensagem.Visible = False
+        MensagemUtils.limpaMensagemLabel(txtMensagem)
 
         If validaUsuario() Then
             Dim usuario = New Usuario With {.Login = txtLogin.Text, .Senha = txtSenha.Text, .Nome = txtNome.Text}

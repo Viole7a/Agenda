@@ -40,8 +40,7 @@
 
     Protected Sub btnIncluirTarefa_Click(sender As Object, e As EventArgs) Handles btnIncluirTarefa.Click
 
-        txtMensagem.Text = ""
-        txtMensagem.Visible = False
+        MensagemUtils.limpaMensagemLabel(txtMensagem)
 
         If validarTarefa() Then
 
