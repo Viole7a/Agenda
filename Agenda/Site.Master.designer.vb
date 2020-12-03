@@ -20,7 +20,7 @@ Partial Public Class SiteMaster
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents btnSair As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnSair As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''Controle MainContent.

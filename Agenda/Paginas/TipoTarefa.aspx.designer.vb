@@ -14,13 +14,13 @@ Option Explicit On
 Partial Public Class TipoTarefa1
 
     '''<summary>
-    '''Controle dtgTipoTarefa.
+    '''Controle txtMensagem.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents dtgTipoTarefa As Global.System.Web.UI.WebControls.DataGrid
+    Protected WithEvents txtMensagem As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Controle txtNome.
@@ -32,13 +32,13 @@ Partial Public Class TipoTarefa1
     Protected WithEvents txtNome As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Controle drpCor.
+    '''Controle inputColor.
     '''</summary>
     '''<remarks>
     '''Campo gerado automaticamente.
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
-    Protected WithEvents drpCor As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents inputColor As Global.System.Web.UI.HtmlControls.HtmlInputGenericControl
 
     '''<summary>
     '''Controle btnIncluir.
@@ -57,4 +57,13 @@ Partial Public Class TipoTarefa1
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnVoltar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle gridTipoTarefa.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents gridTipoTarefa As Global.System.Web.UI.WebControls.GridView
 End Class

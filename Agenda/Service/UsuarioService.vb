@@ -1,8 +1,8 @@
 ﻿Public Class UsuarioService
 
-    Public Sub salvarUsuario(ByVal usuario As Usuario)
+    Protected agendaTarefa As New AgendaTarefaEntities
 
-        Dim agendaTarefa = New AgendaTarefaEntities
+    Public Sub salvarUsuario(ByVal usuario As Usuario)
 
         usuario.Senha = CodificaUtil.converteParaBase64(usuario.Senha)
 
@@ -26,7 +26,6 @@
     Public Function validaLogin(ByVal login As String, ByVal senha As String) As Usuario
 
         Dim usuarioLogado = New Usuario
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         Dim senhaBase64 = CodificaUtil.converteParaBase64(senha)
 
@@ -41,8 +40,6 @@
     End Function
 
     Public Function carregaUsuario(ByVal id As Integer) As Usuario
-
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         Return agendaTarefa.Usuarios.Find(id)
 

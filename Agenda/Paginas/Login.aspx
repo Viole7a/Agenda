@@ -16,8 +16,7 @@
     <form id="form1" runat="server">
     <div class="grid" >
         <div class="centered grid__col--4">                                   
-            <h2 class="headline-secondary--grouped">Minha Agenda</h2>                       
-                
+            <h2 class="headline-secondary--grouped">Minha Agenda</h2>                                      
             <div>
                 <div class="form-group">
                     <h6>

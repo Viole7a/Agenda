@@ -23,6 +23,15 @@ Partial Public Class TarefaEditar
     Protected WithEvents txtMensagem As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''Controle txtMensagemSucesso.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents txtMensagemSucesso As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Controle txtTitulo.
     '''</summary>
     '''<remarks>
@@ -102,6 +111,15 @@ Partial Public Class TarefaEditar
     '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
     '''</remarks>
     Protected WithEvents btnExcluirTarefa As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Controle btnConfirmaExclusao.
+    '''</summary>
+    '''<remarks>
+    '''Campo gerado automaticamente.
+    '''Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+    '''</remarks>
+    Protected WithEvents btnConfirmaExclusao As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Controle btnVoltar.

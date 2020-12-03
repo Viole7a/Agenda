@@ -27,7 +27,7 @@
 
                 Else
                     btnSalvarTarefa.Visible = False
-                    btnExcluirTarefa.Visible = False
+                    btnConfirmaExclusao.Visible = False
                 End If
 
             End If

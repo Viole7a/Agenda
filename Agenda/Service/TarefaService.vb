@@ -1,8 +1,7 @@
 ﻿Public Class TarefaService
 
+    Protected agendaTarefa As New AgendaTarefaEntities
     Public Function carregaTipoTarefa(ByVal id As Integer) As List(Of TipoTarefa)
-
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         Return agendaTarefa.TipoTarefas.Where(Function(tipo) tipo.Usuario = id).ToList
 
@@ -10,15 +9,11 @@
 
     Public Function carregaStatus() As List(Of Status)
 
-        Dim agendaTarefa = New AgendaTarefaEntities
-
         Return agendaTarefa.Status.ToList
 
     End Function
 
     Public Function carregaPrioridade() As List(Of Prioridade)
-
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         Return agendaTarefa.Prioridades.ToList
 
@@ -46,7 +41,6 @@
 
     Public Sub salvarTarefa(ByVal tarefa As Tarefa)
 
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         agendaTarefa.Tarefas.Add(tarefa)
         agendaTarefa.SaveChanges()
@@ -55,7 +49,6 @@
 
     Public Sub updateTarefa(ByVal tarefa As Tarefa)
 
-        Dim agendaTarefa = New AgendaTarefaEntities
         Dim tarefaAnterior = agendaTarefa.Tarefas.Find(tarefa.Id)
 
         agendaTarefa.Entry(tarefaAnterior).CurrentValues.SetValues(tarefa)
@@ -63,17 +56,19 @@
 
     End Sub
 
-    Public Function listarTarefas(ByVal id As Integer) As List(Of Tarefa)
+    Public Function listarTarefasAFazer(ByVal usuarioId As Integer) As List(Of Tarefa)
 
-        Dim agendaTarefa = New AgendaTarefaEntities
+        Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = usuarioId And (atv.Status = 1 Or atv.Status = 2 Or atv.Status = 3)).ToList
 
-        Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = id).ToList
+    End Function
+
+    Public Function listarTarefasFinalizadas(ByVal usuarioId As Integer) As List(Of Tarefa)
+
+        Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = usuarioId And (atv.Status = 4 Or atv.Status = 5)).ToList
 
     End Function
 
     Public Function carregarTarefa(ByVal id As Integer) As Tarefa
-
-        Dim agendaTarefa = New AgendaTarefaEntities
 
         Return agendaTarefa.Tarefas.Find(id)
 
@@ -81,11 +76,9 @@
 
     Public Sub excluirTarefa(ByVal id As Integer)
 
-        Dim agendaTarefa = New AgendaTarefaEntities
-
         Dim tarefa = agendaTarefa.Tarefas.Find(id)
 
-        agendaTarefa.Tarefas.Remove(Tarefa)
+        agendaTarefa.Tarefas.Remove(tarefa)
 
         agendaTarefa.SaveChanges()
 
