@@ -30,8 +30,6 @@
           <Property Name="Descricao" Type="nvarchar(max)" />
           <Property Name="DataInclusao" Type="datetime" Nullable="false" />
           <Property Name="Prazo" Type="datetime" />
-          <Property Name="Data Inicial" Type="datetime" />
-          <Property Name="Data Final" Type="datetime" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Progressao" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Prioridade" Type="int" Nullable="false" />
@@ -173,8 +171,6 @@
           <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DataInclusao" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Prazo" Type="DateTime" Precision="3" />
-          <Property Name="Data_Inicial" Type="DateTime" Precision="3" />
-          <Property Name="Data_Final" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Progressao" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Prioridade" Type="Int32" Nullable="false" />
@@ -324,8 +320,6 @@
                 <ScalarProperty Name="Descricao" ColumnName="Descricao" />
                 <ScalarProperty Name="DataInclusao" ColumnName="DataInclusao" />
                 <ScalarProperty Name="Prazo" ColumnName="Prazo" />
-                <ScalarProperty Name="Data_Inicial" ColumnName="Data Inicial" />
-                <ScalarProperty Name="Data_Final" ColumnName="Data Final" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Progressao" ColumnName="Progressao" />
                 <ScalarProperty Name="Prioridade" ColumnName="Prioridade" />

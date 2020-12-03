@@ -18,8 +18,6 @@ Partial Public Class Tarefa
     Public Property Descricao As String
     Public Property DataInclusao As Date
     Public Property Prazo As Nullable(Of Date)
-    Public Property Data_Inicial As Nullable(Of Date)
-    Public Property Data_Final As Nullable(Of Date)
     Public Property Status As Integer
     Public Property Progressao As Nullable(Of Decimal)
     Public Property Prioridade As Integer

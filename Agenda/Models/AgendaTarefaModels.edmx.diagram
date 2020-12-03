@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca725ff9399f42a599fc6f5a4a548b8d" Name="Diagram1">
-        <EntityTypeShape EntityType="AgendaTarefaModel.Prioridade" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgendaTarefaModel.Status" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgendaTarefaModel.Tarefa" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgendaTarefaModel.TipoTarefa" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AgendaTarefaModel.Usuario" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+      <Diagram DiagramId="bf0a4abc4b7e499196350c177be33e15" Name="Diagram1">
+        <EntityTypeShape EntityType="AgendaTarefaModel.Prioridade" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgendaTarefaModel.Status" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgendaTarefaModel.Tarefa" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgendaTarefaModel.TipoTarefa" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AgendaTarefaModel.Usuario" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="AgendaTarefaModel.FK_Tarefa_ToPrioridade" ManuallyRouted="false" />
         <AssociationConnector Association="AgendaTarefaModel.FK_Tarefa_ToStatus" ManuallyRouted="false" />
         <AssociationConnector Association="AgendaTarefaModel.FK_Tarefa_ToTipoTarefa" ManuallyRouted="false" />

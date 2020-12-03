@@ -156,23 +156,23 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\AgendaModel.edmx">
+    <EntityDeploy Include="Models\AgendaTarefaModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AgendaModel.Designer.vb</LastGenOutput>
+      <LastGenOutput>AgendaTarefaModels.Designer.vb</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\AgendaModel.edmx.diagram">
-      <DependentUpon>AgendaModel.edmx</DependentUpon>
+    <Content Include="Models\AgendaTarefaModels.edmx.diagram">
+      <DependentUpon>AgendaTarefaModels.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Models\AgendaModel.Context.tt">
+    <Content Include="Models\AgendaTarefaModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgendaModel.edmx</DependentUpon>
-      <LastGenOutput>AgendaModel.Context.vb</LastGenOutput>
+      <DependentUpon>AgendaTarefaModels.edmx</DependentUpon>
+      <LastGenOutput>AgendaTarefaModels.Context.vb</LastGenOutput>
     </Content>
-    <Content Include="Models\AgendaModel.tt">
+    <Content Include="Models\AgendaTarefaModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgendaModel.edmx</DependentUpon>
-      <LastGenOutput>AgendaModel.vb</LastGenOutput>
+      <DependentUpon>AgendaTarefaModels.edmx</DependentUpon>
+      <LastGenOutput>AgendaTarefaModels.vb</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -216,35 +216,35 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AgendaModel.Context.vb">
+    <Compile Include="Models\AgendaTarefaModels.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgendaModel.Context.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AgendaModel.Designer.vb">
+    <Compile Include="Models\AgendaTarefaModels.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgendaModel.edmx</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\AgendaModel.vb">
+    <Compile Include="Models\AgendaTarefaModels.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Prioridade.vb">
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Status.vb">
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tarefa.vb">
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoTarefa.vb">
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.vb">
-      <DependentUpon>AgendaModel.tt</DependentUpon>
+      <DependentUpon>AgendaTarefaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
