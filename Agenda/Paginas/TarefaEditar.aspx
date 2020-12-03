@@ -49,8 +49,7 @@
                     <div class="form-group col-md-6">
                         <asp:Button ID="btnIncluirTarefa" runat="server" text="Incluir" class="btn--success"/>
                         <asp:Button ID="btnSalvarTarefa" runat="server" Text="Salvar" class="btn--success"/>
-                        <asp:Button ID="btnExcluirTarefa" runat="server" Text="Confirma Exclusao" Visible="false" />
-                        <asp:Button ID="btnConfirmaExclusao" runat="server" Text="Excluir" class="btn--error" OnClick="btnExcluirTarefa_Click" OnClientClick="if ( !confirm('Confirma a exclusão?')) return false;"/>
+                        <asp:Button ID="btnExcluirTarefa" runat="server" Text="Excluir" class="btn--error" OnClick="btnExcluirTarefa_Click" OnClientClick="return confirm('Confirma a exclusão?')"/>
                         <asp:Button ID="btnVoltar" runat="server" Text="Voltar" class="btn--default"/>
                     </div>
                 </div>

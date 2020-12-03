@@ -22,6 +22,8 @@ body {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #C2D5B5;
     border-bottom: solid #366a22;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .input-color {
@@ -53,4 +55,8 @@ td {
 
 td:last-child {
     text-align: center;
+}
+
+textarea {
+    resize: none;
 }

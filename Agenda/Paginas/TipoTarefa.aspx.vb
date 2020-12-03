@@ -27,12 +27,17 @@
             Dim tipoTarefa = New TipoTarefa With {.Nome = txtNome.Text, .Cor = inputColor.Value, .Usuario = usuario.Id}
             tipoTarefaService.salvarTipoTarefa(tipoTarefa)
             carregaGridTipoTarefa()
+            limpaCampos()
 
         End If
 
 
     End Sub
 
+    Public Sub limpaCampos()
+        txtNome.Text = ""
+        inputColor.Value = "#ffffff"
+    End Sub
     Public Function validarTipoTarefa() As Boolean
 
         Dim retorno = True

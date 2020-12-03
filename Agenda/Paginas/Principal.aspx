@@ -23,7 +23,7 @@
                                 <asp:BoundField DataField="id" HeaderText="#" />
                                 <asp:BoundField DataField="tipoTarefa1.cor" HeaderText="cor" />
                                 <asp:BoundField DataField="titulo" HeaderText="Titulo" />
-                                <asp:BoundField DataField="descricao" HeaderText="Descricao" />
+                                <asp:BoundField DataField="prioridade1.nome" HeaderText="Prioridade" />
                                 <asp:BoundField DataField="prazo" HeaderText="Prazo" DataFormatString="{0:dd/MM/yyyy}" />
                                 <asp:BoundField DataField="tipoTarefa1.nome" HeaderText="Tipo de Tarefa" />
                                 <asp:TemplateField>

@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label>Cor:</label>
-                        <input type="color" class="input-color"  id="inputColor" value="#e66465" runat="server">
+                        <input type="color" class="input-color"  id="inputColor" value="#ffffff" runat="server">
                     </div>
                 </div> 
                 <div class="row">
@@ -37,7 +37,7 @@
                             <asp:BoundField DataField="" HeaderText="Cor" />
                             <asp:TemplateField>
                                     <ItemTemplate>                
-                                        <asp:LinkButton runat="server" CommandArgument="<%# Container.DataItemIndex %>">
+                                        <asp:LinkButton runat="server" CommandArgument="<%# Container.DataItemIndex %>" OnClientClick="return confirm('Confirma a exclusão?')">
                                             <span class="glyphicon glyphicon-trash"/>
                                         </asp:LinkButton>
                                     </ItemTemplate>

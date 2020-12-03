@@ -11,24 +11,7 @@
 
             If Not Page.IsPostBack Then
 
-                drpTipoTarefa.DataSource = tarefaService.carregaTipoTarefa(usuario.Id)
-                drpTipoTarefa.DataBind()
-
-                drpPrioridade.DataSource = tarefaService.carregaPrioridade()
-                drpPrioridade.DataBind()
-
-                drpStatus.DataSource = tarefaService.carregaStatus()
-                drpStatus.DataBind()
-
-                If Request("id") <> "0" Then
-                    btnIncluirTarefa.Visible = False
-
-                    carregaCampos(CInt(Request("Id")))
-
-                Else
-                    btnSalvarTarefa.Visible = False
-                    btnConfirmaExclusao.Visible = False
-                End If
+                carregarPagina()
 
             End If
 
@@ -38,9 +21,35 @@
 
     End Sub
 
+    Public Sub carregarPagina()
+
+        drpTipoTarefa.DataSource = tarefaService.carregaTipoTarefa(usuario.Id)
+        drpTipoTarefa.DataBind()
+
+        drpPrioridade.DataSource = tarefaService.carregaPrioridade()
+        drpPrioridade.DataBind()
+
+        drpStatus.DataSource = tarefaService.carregaStatus()
+        drpStatus.DataBind()
+
+        If Request("id") <> "0" Then
+            btnIncluirTarefa.Visible = False
+            carregaCampos(CInt(Request("Id")))
+        Else
+            btnSalvarTarefa.Visible = False
+            btnExcluirTarefa.Visible = False
+        End If
+
+        If Request("NovaInclusao") = "Sim" Then
+            MensagemUtils.exibeMensagemLabel(txtMensagemSucesso, "Tarefa incluída com sucesso!")
+        End If
+
+    End Sub
+
     Protected Sub btnIncluirTarefa_Click(sender As Object, e As EventArgs) Handles btnIncluirTarefa.Click
 
         MensagemUtils.limpaMensagemLabel(txtMensagem)
+        MensagemUtils.limpaMensagemLabel(txtMensagemSucesso)
 
         If validarTarefa() Then
 
@@ -54,7 +63,7 @@
             End If
 
             tarefaService.salvarTarefa(tarefa)
-            Response.Redirect("~/Paginas/TarefaEditar?Id=" & tarefa.Id)
+            Response.Redirect("~/Paginas/TarefaEditar?Id=" & tarefa.Id & "&NovaInclusao=Sim")
 
         End If
 
@@ -114,8 +123,8 @@
 
     Protected Sub btnSalvarTarefa_Click(sender As Object, e As EventArgs) Handles btnSalvarTarefa.Click
 
-        txtMensagem.Text = ""
-        txtMensagem.Visible = False
+        MensagemUtils.limpaMensagemLabel(txtMensagem)
+        MensagemUtils.limpaMensagemLabel(txtMensagemSucesso)
 
         If validarTarefa() Then
 
@@ -136,7 +145,7 @@
             tarefa.Id = CInt(Request("Id"))
 
             tarefaService.updateTarefa(tarefa)
-            Response.Redirect("~/Paginas/TarefaEditar?Id=" & tarefa.Id)
+            MensagemUtils.exibeMensagemLabel(txtMensagemSucesso, "Alterações salvas com sucesso!")
 
         End If
 

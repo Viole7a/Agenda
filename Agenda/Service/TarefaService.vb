@@ -58,7 +58,7 @@
 
     Public Function listarTarefasAFazer(ByVal usuarioId As Integer) As List(Of Tarefa)
 
-        Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = usuarioId And (atv.Status = 1 Or atv.Status = 2 Or atv.Status = 3)).ToList
+        Return agendaTarefa.Tarefas.Where(Function(atv) atv.Usuario1.Id = usuarioId And (atv.Status = 1 Or atv.Status = 2 Or atv.Status = 3)).OrderByDescending(Function(atv) atv.Prioridade).ToList
 
     End Function
 
